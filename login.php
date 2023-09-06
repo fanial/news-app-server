@@ -17,14 +17,15 @@ if ($_SERVER['REQUEST_METHOD']=="POST") {
     $data = mysqli_fetch_assoc($login);
 
     if($cek > 0){
-        $response['value'] = 1;
+        $response['value'] = 0;
         $response['message'] = "Login Successfully";
-        $response['data_user'] = $data;
+        $response['id_user'] = $data['id_user'];
+        $response['username'] = $data['username'];
+        $response['email'] = $data['email'];
         echo json_encode($response);
     }else{
-        $response['value'] = 0;
+        $response['value'] = 1;
         $response['message'] = "Login Failed";
-        $response['data_user'] = $data;
         echo json_encode($response);
     }
 

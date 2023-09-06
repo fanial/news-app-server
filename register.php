@@ -16,8 +16,8 @@ if ($_SERVER['REQUEST_METHOD']=="POST") {
         $response['message'] = "Username or Email already in use";
         echo json_encode($response);
     }else{
-    //memasukan data ke tabel user
-    $regist = mysqli_query($connect, "INSERT INTO tb_user VALUE('','$username', '$email', '$pass', '1', NOW())");
+        //memasukan data ke tabel user
+        $regist = mysqli_query($connect, "INSERT INTO tb_user VALUE('','$username', '$email', '$pass', '1', NOW())");
         if ($regist) {
             $response['value'] = 1;
             $response['message'] = "Register Successfully";
